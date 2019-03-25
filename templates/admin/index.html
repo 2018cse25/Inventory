@@ -1,0 +1,30 @@
+{% extends 'admin/master.html' %}
+
+{% block body %}
+
+<div class="jumbotron">
+  <div class="container">
+    <h1 id="inventory-management-web-application">Donations Inventory</h1>
+    <p>Manage available donations</p>
+    <p>
+      
+    </p>
+  </div>
+</div>
+<div class="container">
+  <div class="jumbotron">
+    <h2 id="views">Views:</h2>
+    <ul>
+      <li><a href="/product/">Add/Edit/View Product</a></li>
+      <li><a href="/location/">Add/Edit/View Location</a></li>
+      <li><a href="/productmovement/">Add/Edit/View Transportation</a></li>
+    </ul>
+
+    <h2 id="report">Report:</h2>
+    <ul>
+      <li><a href="/productstock/">Balance quantity in each location</a></li>
+    </ul>
+  </div>
+</div>
+
+{% endblock %}
