@@ -21,7 +21,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
 engine = db.create_engine(app.config['SQLALCHEMY_DATABASE_URI'])
 
-# customs views
 class ModelViewProduct(ModelView):
     can_delete = False
     can_view_details = True
@@ -256,12 +255,6 @@ admin.add_view(ModelViewProduct(Product, db.session, category="Master"))
 admin.add_view(ModelViewLocation(Location, db.session, category="Master"))
 
 
-@app.route('/favicon.ico')
-def favicon():
-    return redirect(url_for('static', filename='favicon.ico'))
-
-
-# init demo data
 def create_demo_data():
     products_demo_data = [
         {'name': 'First aid supplies', 'description': 'Sealed box of basic first aid necessities- iodine, bandages, painkillers, cotton, etc'},
@@ -279,10 +272,7 @@ def create_demo_data():
         {'name': 'Cleaning supplies', 'description': 'Bleach, iodine tablets, etc'},
         {'name': 'Plastic buckets and mugs',
             'description': 'Containers to store clean water'},
-        # {'name': '', 'description': ''},
-        # {'name': '', 'description': ''},
-        # {'name': '', 'description': ''},
-        # {'name': '', 'description': ''},
+       
     ]
     for demo_product in products_demo_data:
         product = Product()
@@ -304,14 +294,6 @@ def create_demo_data():
             'other_details': 'Eg. area 3 '},
         {'name': 'Relief center 4',
             'other_details': 'Eg. area 4 '},
-        # {'name':'', 'other_details': ''},
-        # {'name':'', 'other_details': ''},
-        # {'name':'', 'other_details': ''},
-        # {'name':'', 'other_details': ''},
-        # {'name':'', 'other_details': ''},
-        # {'name':'', 'other_details': ''},
-        # {'name':'', 'other_details': ''},
-        # {'name':'', 'other_details': ''},
     ]
     for demo_location in location_demo_data:
         location = Location()
@@ -383,7 +365,6 @@ def create_demo_data():
 
 
 if __name__ == "__main__":
-    # create demo data if demo flag set
     if app.config['demo']:
         db.drop_all()
         db.create_all()
