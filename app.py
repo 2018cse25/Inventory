@@ -7,8 +7,8 @@ from wtforms import validators, Form
 import os
 
 app = Flask(__name__)
-app.config['demo'] = os.environ.get('IS_DEMO', True)
-app.config['is_production'] = os.environ.get('IS_PRODUCTION', False)
+app.config['demo'] = os.environ.get('IS_DEMO', False)
+app.config['is_production'] = os.environ.get('IS_PRODUCTION',True)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', '0012345679')
 app.config['GA_TRACKING_ID'] = os.environ.get('GA_TRACKING_ID', None)
 
